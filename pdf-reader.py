@@ -21,8 +21,6 @@ def matchURLs(value):
         ret.append(url)
     return ret
 
-
-
 if __name__ == '__main__':
     f = open('URLlist.txt', 'w+')
     #search for all pdf files in directory:
@@ -32,4 +30,3 @@ if __name__ == '__main__':
         for url in urls:
             f.writelines(url + '\n')
     f.close()
-
