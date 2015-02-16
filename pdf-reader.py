@@ -18,7 +18,7 @@ def getPDFContent(path):
 def matchURLs(value):
     ret = []
     for url in re.findall('([a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3})Click', value):
-        ret.append(url)
+        ret.append(url[0])
     return ret
 
 if __name__ == '__main__':
