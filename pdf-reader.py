@@ -29,6 +29,13 @@ if __name__ == '__main__':
         pdfContent = getPDFContent(files)
         urls = matchURLs(pdfContent)
         for url in urls:
-            f.writelines(url + '\n')
+            # skip paulieciara domain
+            if url == 'http://www.paulieciara.com':
+                continue
+            # skip yourdomain domain
+            elif url == 'http://www.yourdomain.com':
+                continue
+            else:
+                f.writelines(url + '\n')
     f.close()
     print "Koniec programu"
