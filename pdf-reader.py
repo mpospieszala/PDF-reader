@@ -24,7 +24,7 @@ def matchURLs(value):
 
 if __name__ == '__main__':
     f = open('URLlist.txt', 'w+')
-    #search for all pdf files in directory:
+    # search for all pdf files in directory:
     for files in glob.glob('*.pdf'):
         pdfContent = getPDFContent(files)
         urls = matchURLs(pdfContent)
@@ -32,8 +32,12 @@ if __name__ == '__main__':
             # skip paulieciara domain
             if url == 'http://www.paulieciara.com':
                 continue
+            elif url == 'www.paulieciara.com':
+                continue
             # skip yourdomain domain
             elif url == 'http://www.yourdomain.com':
+                continue
+            elif url == 'http://yourdomain.com':
                 continue
             else:
                 f.writelines(url + '\n')
