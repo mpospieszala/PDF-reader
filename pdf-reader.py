@@ -30,14 +30,10 @@ if __name__ == '__main__':
         urls = matchURLs(pdfContent)
         for url in urls:
             # skip paulieciara domain
-            if url == 'http://www.paulieciara.com':
-                continue
-            elif url == 'www.paulieciara.com':
+            if url == 'http://www.paulieciara.com' or url == 'www.paulieciara.com':
                 continue
             # skip yourdomain domain
-            elif url == 'http://www.yourdomain.com':
-                continue
-            elif url == 'http://yourdomain.com':
+            elif url == 'http://www.yourdomain.com' or url == 'http://yourdomain.com':
                 continue
             else:
                 f.writelines(url + '\n')
