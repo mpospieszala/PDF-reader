@@ -22,9 +22,8 @@ def matchURLs(value):
         ret.append(url[0])
     return ret
 
-if __name__ == '__main__':
-    f = open('URLlist.txt', 'w+')
-    # search for all pdf files in directory:
+
+def checkAllFiles():
     for files in glob.glob('*.pdf'):
         pdfContent = getPDFContent(files)
         urls = matchURLs(pdfContent)
@@ -38,4 +37,9 @@ if __name__ == '__main__':
             else:
                 f.writelines(url + '\n')
     f.close()
+
+
+if __name__ == '__main__':
+    f = open('URLlist.txt', 'w+')
+    checkAllFiles()
     print "Koniec programu"
