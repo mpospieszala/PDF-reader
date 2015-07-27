@@ -29,7 +29,6 @@ def matchURLs(value):
 
 
 def checkAllFiles():
-    f = open('URLlist.txt', 'w+')
     allLinkArray = []
     for files in glob.glob('*.pdf'):
         pdfContent = getPDFContent(files)
@@ -43,8 +42,16 @@ def checkAllFiles():
                 continue
             else:
                 allLinkArray.append(url)
-                f.write(url + '\n')
+                noDuplicatesArray = set(allLinkArray)
+    return noDuplicatesArray
+
+def saveUniqueLinksToFile():
+    uniqueLinksSource = checkAllFiles()
+    f = open('URLlist.txt', 'w+')
+    for lines in uniqueLinksSource:
+        f.write(lines + '\n')
     f.close()
+
 
 def moveFilesAfterScraping():
     source = os.listdir('.')
@@ -57,6 +64,7 @@ def moveFilesAfterScraping():
 
 if __name__ == '__main__':
     checkAllFiles()
+    saveUniqueLinksToFile()
     moveFilesAfterScraping()
     print "Koniec programu"
 
